@@ -202,7 +202,7 @@
   }
 
   .msg.user { flex-direction: row-reverse; align-self: flex-end; max-width: 85%; }
-  .msg.ai   { align-self: flex-start; max-width: 92%; }
+  .msg.ai   { align-self: flex-start; max-width: 92%; margin-left: 6px; }
 
   .msg-avatar {
     width: 30px; height: 30px; min-width: 30px;
@@ -252,10 +252,7 @@
 
   .msg-time { font-size: 10px; color: var(--muted); padding: 0 4px; }
 
-  .msg-sources {
-    display: flex; flex-wrap: wrap; gap: 5px;
-    padding: 0 2px;
-  }
+  .msg-sources { display: none; }
 
   .source-chip {
     font-size: 10px;
@@ -310,7 +307,7 @@
     gap: 10px;
     background: var(--surface2);
     border: 1.5px solid var(--border);
-    border-radius: 16px;
+    border-radius: 24px;
     padding: 10px 10px 10px 16px;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
