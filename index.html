@@ -325,9 +325,8 @@
 
   .msg-bubble h2 { font-size: 14px; font-weight: 700; margin: 10px 0 5px; color: var(--accent2); }
   .msg-bubble h3 { font-size: 13px; font-weight: 600; margin: 8px 0 4px; color: var(--accent2); }
-  .msg-bubble ul, .msg-bubble ol { padding-left: 0; margin: 6px 0; list-style: none; }
-  .msg-bubble li { margin: 5px 0; padding-left: 16px; position: relative; }
-  .msg-bubble li::before { content: "•"; position: absolute; left: 2px; color: var(--accent2); font-weight: 700; }
+  .msg-bubble ul, .msg-bubble ol { padding-left: 22px; margin: 6px 0; list-style-position: outside; }
+  .msg-bubble li { margin: 5px 0; }
 
   .msg-bubble blockquote { border-left: 2px solid var(--accent); padding-left: 10px; margin: 6px 0; color: var(--text-muted); font-style: italic; }
   .msg-bubble strong { font-weight: 600; color: var(--accent2); }
@@ -515,8 +514,8 @@
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
       .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
-      .replace(/^- (.+)$/gm, '<li>$1</li>')
-      .replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>')
+      .replace(/((?:^- .+$\n?)+)/gm, (m) => '<ul>' + m.replace(/^- (.+)$/gm, '<li>$1</li>') + '</ul>')
+      .replace(/((?:^\d+\. .+$\n?)+)/gm, (m) => '<ol>' + m.replace(/^\d+\. (.+)$/gm, '<li>$1</li>') + '</ol>')
       .replace(/\n\n/g, '<br><br>')
       .replace(/\n/g, '<br>');
   }
