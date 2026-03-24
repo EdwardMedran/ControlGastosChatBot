@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_DIR  = "C:/DEV_EDWARD/02_PROYECTOS-PERSONALES/html/ControlGastos"
+        REPO_DIR  = "C:/DEV_EDWARD/02_PROYECTOS-PERSONALES/html/Chatbot/Front"
         GIT_USER  = "EdwardMedran"
         GIT_EMAIL = "edwardgino13@gmail.com"
         GITHUB_TOKEN = credentials('github-token')
@@ -29,15 +29,10 @@ pipeline {
                         echo ❌ index.html NO encontrado
                         exit 1
                     )
-                    if exist Manifest.json (
-                        echo ✅ Manifest.json encontrado
+                    if exist README.md (
+                        echo ✅ README.md encontrado
                     ) else (
-                        echo ⚠️ Manifest.json no encontrado
-                    )
-                    if exist Icon.png (
-                        echo ✅ Icon.png encontrado
-                    ) else (
-                        echo ⚠️ Icon.png no encontrado
+                        echo ⚠️ README.md no encontrado
                     )
                 """
             }
