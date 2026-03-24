@@ -47,7 +47,7 @@ pipeline {
                     git config user.name "${GIT_USER}"
                     git add .
                     git commit -m "Auto deploy #%BUILD_NUMBER% - %DATE% %TIME%" || echo Nada que confirmar
-                    git push https://${GIT_USER}:${GITHUB_TOKEN}@github.com/EdwardMedran/ControlGastos.git main
+                    git push https://${GIT_USER}:${GITHUB_TOKEN}@github.com/EdwardMedran/ControlGastosChatBot main
                 """
             }
         }
@@ -55,7 +55,7 @@ pipeline {
         stage('Verificar Deploy') {
             steps {
                 echo '✅ Deploy completado exitosamente!'
-                echo '🌐 App disponible en: https://edwardmedran.github.io/ControlGastos'
+                echo '🌐 App disponible en: https://github.com/EdwardMedran/ControlGastosChatBot'
                 bat """
                     cd /d "${REPO_DIR}"
                     git log --oneline -3
@@ -68,7 +68,7 @@ pipeline {
         success {
             echo '========================================='
             echo '✅ PIPELINE EXITOSO'
-            echo '🌐 https://edwardmedran.github.io/ControlGastos'
+            echo '🌐 https://github.com/EdwardMedran/ControlGastosChatBot'
             echo '========================================='
         }
         failure {
