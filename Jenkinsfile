@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REPO_DIR  = "C:/DEV_EDWARD/02_PROYECTOS-PERSONALES/html/Chatbot/Front"
+        REPO_DIR  = "C:\DEV_EDWARD\02_PROYECTOS-PERSONALES\Chatbot\Front"
         GIT_USER  = "EdwardMedran"
         GIT_EMAIL = "edwardgino13@gmail.com"
         GITHUB_TOKEN = credentials('github-token')
